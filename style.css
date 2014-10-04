@@ -1,0 +1,353 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,300,400,700&subset=latin,greek);
+
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	font-weight: 300;
+	color: rgb(65,64,66);
+	background-color: rgb(246,246,246);
+	overflow-x:hidden;
+	max-width:100%;
+	height: 100%
+}
+
+.slogan {
+	color: white;
+	font-size: 1.5em;
+	width: 20%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3em;
+	margin-bottom: 4em;
+}
+
+.splashBckg
+{
+	background-color: rgb(105,140,137);
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+
+.home.logo {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10%;
+}
+
+.logo {
+	width: 60%;
+}
+
+.startBtn {
+	border: 1px solid rgb(246,246,246);;
+	border-radius: 2px;
+	width: 7em;
+	font-size: 1.5em;
+	background-color: transparent;
+	color: rgb(246,246,246);;
+	height: 3em;
+}
+
+.about {
+	margin-top: 10em;
+	width: 5em;
+	color: rgb(246,246,246);
+	border-bottom: 1px solid rgb(64,65,66);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.about:hover {
+	cursor: pointer;
+}
+
+.header {
+	color: rgb(167,169,172);
+	font-size: 1.5em;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
+	width: 40%;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	padding: 0.5em;
+	border-color: rgb(230,231,232);
+}
+
+.menu {
+	margin-bottom: 4em;
+	height: 6em;
+	background-color: rgb(105,140,137);
+	padding-top: 1em;
+}
+.menu .left {
+	background-size: 55%;
+	background-image: url('assets/svg/logo.svg');
+	background-repeat: no-repeat;
+	cursor: pointer;
+	float: left;
+	width: 30%;
+	height: 80%;
+}
+
+.circle {
+	border-radius: 50%;
+	border: 1px solid rgb(246,246,246);
+	width: 4em;
+	height: 4em;
+	text-align: center;
+	border-color: rgb(246,246,246); 
+}
+
+.leftBack {
+	float: left;
+	margin-left: 1em;
+}
+
+.social {
+	float: right;
+	margin-right: 1em;
+	border-color: rgb(71,89,87); 
+}
+
+.signature {
+	font-size: 1.5em;
+	border-top: 1px solid rgb(71,89,87);
+	width: 2em;
+	margin-top: 1em;
+	font-style: italic;
+}
+
+.menuIcon {
+	font-size: 2em;
+	margin-top: 0.5em;
+	margin-right: 0.1em;
+	color: rgb(246,246,246);
+	cursor: pointer;
+}
+
+.menuIcon.email {
+	margin-right: 0px;
+	margin-top: 0.4em;
+}
+
+.menu .right {
+	margin-right: 2em;
+	cursor: pointer;
+	float: right;
+	color: rgb(246,246,246);
+}
+
+.menu .right .fa {
+	font-size: 3em;
+}
+
+.articleLink {
+	margin-left: 30%;
+	padding-top: 4em;
+	border-bottom: 1px solid rgb(230,231,232);
+	width: 40%;
+	padding-bottom: 3em;
+	border-radius: 5px;
+	-webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+}
+
+.articleLink:hover {
+	background-color: rgb(240,241,242);
+	cursor:pointer;
+	-webkit-transform: translate(3em,0);
+    -moz-transform: translate(3em,0);
+    -o-transform: translate(3em,0);
+    -ms-transform: translate(3em,0);
+    transform: translate(3em,0);
+}
+
+.number {
+	color: rgb(105,140,137);
+	font-size: 2em;
+	float: left;
+	margin-right: 1em;
+	padding-left: 0.5em;
+}
+
+.articleLink .title {
+	font-size: 1.3em;
+}
+
+.title {
+	font-weight: 700;
+	color: rgb(71,89,87);
+	font-size: 2em;
+	margin-bottom: 0.5em;
+}
+
+.date {
+	color: rgb(209,211,212);
+	font-size: 1.1em;
+}
+
+.article {
+	width: 60%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.text {
+	font-size: 1.5em;
+	line-height: 2em;
+}
+
+.firstLetter {
+	font-weight: 400;
+	font-size: 1.4em;
+}
+
+.article .title {
+	border-bottom: 1px solid rgb(105,140,137);
+	padding-bottom: 0.5em;
+	margin-bottom: 2em;
+	display: inline-block;
+	font-size: 1.7em;
+}
+
+/* Smartphones (portrait or landscape) ----------- */
+@media screen and (max-device-width: 640px){
+   body {
+		font-size: 10px;
+	}
+
+	.slogan {
+		width: 80%;
+	}
+}
+
+/* Smartphones (portrait) ----------- */
+@media screen and (max-device-width: 480px) and (orientation: portrait){
+
+	.logo {
+		width: 80%;
+	}
+
+	.home.logo {
+		margin-top: 30%;
+	}
+	
+	.splashBckg {
+		padding-bottom: 50%;
+	}
+
+	.article {
+		width: 90%;
+	}
+
+	.menu .left {
+		background-size: 100%;
+		width: 50%;
+		height: 100%;
+	}
+
+	.header {
+		width: 90%;
+	}
+
+	.articleLink {
+		width: 90%;
+		margin-left: 5%;
+	}
+}
+
+/* Smartphones (landscape) ----------- */
+@media screen and (max-device-width: 640px) and (orientation: landscape){
+ 
+ 	.logo {
+		width: 60%;
+	}
+
+	.home.logo {
+		margin-top: 10%;
+	}
+
+ 	.menu .left {
+		background-size: 100%;
+		width: 30%;
+		height: 100%;
+	}
+
+	.header {
+		width: 60%;
+	}
+
+	.articleLink {
+		width: 60%;
+		margin-left:20%;
+	}
+
+	.about {
+		margin-top: 2em;
+	}
+}
+
+/*  Tablets Portrait or Landscape */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px){
+  body {
+		font-size: 16px;
+	}
+
+	.slogan {
+		width: 80%;
+	}
+
+	.header {
+		width: 90%;
+	}
+
+	.articleLink {
+		width: 90%;
+		margin-left:5%;
+	}
+}
+
+/*  Tablets Portrait */
+@media screen and (min-device-width: 768px) and (orientation: portrait){
+	.menu .left {
+		background-size: 100%;
+		width: 40%;
+		height: 100%;
+	}
+
+	.logo {
+		width: 80%;
+	}
+
+	.home.logo {
+		margin-top: 20%;
+	}
+}
+
+/*  Tablets Landscape */
+@media screen and (max-device-width: 1024px) and (orientation: landscape){
+	.about {
+		margin-top: 5em;
+	}
+
+	.logo {
+		width: 70%;
+	}
+
+	.home.logo {
+		margin-top: 10%;
+	}
+
+	.menu .left {
+		background-size: 100%;
+		width: 30%;
+		height: 100%;
+	}
+}
