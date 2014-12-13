@@ -1,0 +1,172 @@
+<html>
+    <head>
+        <!-- General Settings -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <title>Thought for Change</title>
+        <meta name="description" content="" />
+
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" value="Thought for Change">
+
+        <!-- Open Graph data -->
+        <meta property="og:title" content="Thought for Change" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://thoughtforchange.gr" />
+        <meta property="og:image" content="http://thoughtforchange.gr/assets/img/logo_fb1.jpg" />
+        <meta property="og:description" content="Οι ιδέες ειναι σφαίρες. Πάρ’τες εσύ και αντιστάσου." />
+
+        <!-- Import stylesheets -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <script>
+        /* Add google analytics */
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          //ga('create', 'UA-54571434-1', 'auto');
+        </script>
+
+    </head>
+  <body>
+    <div class="menu"></div>
+    <div class="container">
+        <div class="page"></div>
+    </div>
+
+    <!-- Templates -->
+    <script type="text/template" id="menuSimple">
+        <div class="left"></div>
+    </script>
+
+    <script type="text/template" id="menuFull">
+        <%
+            /* Extract the base url to use with twitter */
+            var pattern = /(#.*)/;
+            var socialURL = document.URL.replace(pattern,'social.php?article=' + articleID);
+        %>
+        <div class="circle leftBack"><i class="menuIcon fa fa-chevron-left"></i></div>
+         <div class="social">
+            <a href="https://twitter.com/share?url=<%= socialURL %>" class="twitter-share-button" data-lang="en" target="_blank">
+                <div class="circle social twitter"><i class="menuIcon fa fa-twitter"></i></div>
+            </a>
+            <div class="circle social facebook"><i class="menuIcon fa fa-facebook"></i></div>
+            <a href="mailto:?body=<%= socialURL %>&subject=Thought for Change"><div class="circle social email"><i class="menuIcon email fa fa-envelope-o"></i></div></a>
+        </div>
+    </script>
+
+    <script type="text/template" id="splashScreen">
+        <div class="splashBckg">
+        <object type="image/svg+xml" data="assets/svg/logo.svg" class="home logo">Your browser does not support SVG</object>
+        <!--<div class="home logo"></div>-->
+        <div class="slogan">Οι ιδέες ειναι σφαίρες.<br/>Πάρ’τες εσύ και αντιστάσου.</div>
+        <button type="button" class="startBtn">ΔΙΑΒΑΣΤΕ</button>
+        <div class="about">Ποιά είμαι</div>
+        </div>
+    </script>
+
+    <script type="text/template" id="articleList">
+        <% counter = 1 %>
+        <div class="header">Αγαπητό μου ημερολόγιο...</div>
+        <% _.each(articles, function(article) { %>
+
+            <div class="col-xs-12 col-md-6 col-lg-6 articleLink" id=<%= article.get('id') %> >
+                <div class="post-background small-margin-top" id="photo-<%= article.get('id') %>" >
+                    <%
+                        console.log(article.get('image'));
+                        var image = (article.get('image') ? article.get('image') : 'assets/img/default-image.jpg');
+                        var css = "<style>#photo-" + article.get('id') + ":after {background-image: url(" + image + ");}</style>";
+                        document.head.insertAdjacentHTML( 'beforeEnd', css );
+                    %>
+                    <div class="title shadow"><%= article.get('title') %></div>
+                    <div class="date shadow"><%= article.get('date') %></div>
+                </div>
+            </div>
+
+            <!--<div class="articleLink" id=<%= article.get('id') %>
+                <div class="number"><%= counter++ %>.</div>
+                <div class="title"><%= article.get('title') %></div>
+                <div class="date"><%= article.get('date') %></div>
+            </div>-->
+        <% }); %>
+    </script>
+
+    <script type="text/template" id="article">
+        <% 
+            var text = article.get('text');
+
+            /* Extract the first letter to change its style */
+            var firstLetter = text.substr(0,1);
+            text = text.substr(1);
+
+            /* Add new lines to the text, wherever needed */
+            text = text.replace(/<>/g,"<br/><br/>");
+        %>
+        <div class="article">
+            <div class="title"><%= article.get('title') %></div>
+            <div class="text"><span class="firstLetter"><%= firstLetter %></span><%= text %></div>
+            <div class="signature">xlk</div>
+        </div>
+    </script>
+
+
+    <!-- Import js files & libraries -->
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/backbone-min.js"></script>
+    <script type="text/javascript" src="lib/backbone.tabletopSync.js"></script>
+    <script type="text/javascript" src="lib/tabletop.js"></script>
+
+    <!-- Include the facebook JavaScript SDK -->
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=763681363709936&version=v2.0";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Include the twitter JavaScript SDK -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    <script type="text/javascript">
+        var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1tvA65txvR4oN_MC4MMxtVekjJyGAzCZ5gVuAxDpS6Q0/pubhtml';
+        var storage = Tabletop.init( { key: public_spreadsheet_url, wait: true } );
+    </script>
+
+    <script src="views.js"></script>
+    <script src="model.js"></script>
+    <script src="router.js"></script>
+
+    <!-- The beginning.. -->
+    <script type="text/javascript">
+       
+        var router;
+        var home;
+        var menuModel;
+        var newspaper = new Newspaper();
+
+        /* Do not start until we have fetched all articles from the gDoc */
+        newspaper.fetch({
+            success: function() {
+                router = new Router();
+                home = new splashScreen();
+                menuModel = new MenuState();
+
+                Backbone.history.start();
+            }
+        });
+
+  </script>
+
+    </body>
+</html>

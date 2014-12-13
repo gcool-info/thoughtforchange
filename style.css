@@ -146,28 +146,6 @@ body {
 	font-size: 3em;
 }
 
-.articleLink {
-	margin-left: 30%;
-	padding-top: 4em;
-	border-bottom: 1px solid rgb(230,231,232);
-	width: 40%;
-	padding-bottom: 3em;
-	border-radius: 5px;
-	-webkit-transition: 1s ease-in-out;
-    -moz-transition: 1s ease-in-out;
-    -o-transition: 1s ease-in-out;
-    transition: 1s ease-in-out;
-}
-
-.articleLink:hover {
-	background-color: rgb(240,241,242);
-	cursor:pointer;
-	-webkit-transform: translate(3em,0);
-    -moz-transform: translate(3em,0);
-    -o-transform: translate(3em,0);
-    -ms-transform: translate(3em,0);
-    transform: translate(3em,0);
-}
 
 .number {
 	color: rgb(105,140,137);
@@ -177,9 +155,6 @@ body {
 	padding-left: 0.5em;
 }
 
-.articleLink .title {
-	font-size: 1.3em;
-}
 
 .title {
 	font-weight: 700;
@@ -189,7 +164,8 @@ body {
 }
 
 .date {
-	color: rgb(209,211,212);
+	color: #242424;
+	opacity: 0.8;
 	font-size: 1.1em;
 }
 
@@ -215,6 +191,45 @@ body {
 	margin-bottom: 2em;
 	display: inline-block;
 	font-size: 1.7em;
+}
+
+
+.post-background {
+	position: relative;
+	text-align: center;
+	padding-top: 15vh;
+	padding-left: 5%;
+	padding-right: 5%;
+	height: 40vh;
+}
+
+.post-background::after {
+	content: "";
+	background-size: cover;
+	background-repeat:no-repeat;
+	opacity: 0.1;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;   
+}
+
+.small-margin-top {
+	margin-top: 3em;
+}
+
+.shadow {
+	text-shadow: 1px 1px #fffff1;
+}
+
+.articleLink {
+	cursor: pointer;
+}
+
+.articleLink:hover > .post-background::after {
+	opacity: 0.3;
 }
 
 /* Smartphones (portrait or landscape) ----------- */
@@ -256,11 +271,6 @@ body {
 	.header {
 		width: 90%;
 	}
-
-	.articleLink {
-		width: 90%;
-		margin-left: 5%;
-	}
 }
 
 /* Smartphones (landscape) ----------- */
@@ -284,11 +294,6 @@ body {
 		width: 60%;
 	}
 
-	.articleLink {
-		width: 60%;
-		margin-left:20%;
-	}
-
 	.about {
 		margin-top: 2em;
 	}
@@ -306,11 +311,6 @@ body {
 
 	.header {
 		width: 90%;
-	}
-
-	.articleLink {
-		width: 90%;
-		margin-left:5%;
 	}
 }
 
